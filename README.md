@@ -35,7 +35,7 @@ There are two available options
       [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
       [clientName]="'bassey'" 
       [env]="'sandbox'" 
-      [callback_url]="'sandbox'"
+      [callback_url]="'www.my-webhook.com'"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
       (onSuccess)="okraDone()">
       Open Okra
@@ -49,7 +49,7 @@ There are two available options
     [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
       [clientName]="'bassey'" 
       [env]="'sandbox'" 
-      [callback_url]="'sandbox'"
+      [callback_url]="'www.my-webhook.com'"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
       (onSuccess)="okraDone()">
     Open okra
@@ -90,7 +90,7 @@ And then in your `component.ts`
 
 |Name                   | Type           | Required            | Default Value       | Description         |
 |-----------------------|----------------|---------------------|---------------------|---------------------|
-|  `callback_url `      | `string`       | true                |  undefined          | 
+|  `callback_url `      | `string`       | true                |  undefined          | This is your webhook to which okra sends the clients data to.
 |  `key `               | `String`       | false               |  undefined          | Your public key from Okra.
 |  `products`           | `ArrayList<Enums.Product>`| true     |  undefined          | The Okra products you want to use with the widget. list of products include: 'auth', 'transactions', 'balance', 'income', 'identity'
 |  `env`                | `Enums.Environment`| true            |  undefined          | 
