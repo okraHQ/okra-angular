@@ -1,0 +1,21 @@
+{
+  "name": "angular8-okra",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.13",
+    "@angular/core": "^8.2.13"
+  },
+  "main": "bundles/angular8-okra.umd.js",
+  "module": "fesm5/angular8-okra.js",
+  "es2015": "fesm2015/angular8-okra.js",
+  "esm5": "esm5/angular8-okra.js",
+  "esm2015": "esm2015/angular8-okra.js",
+  "fesm5": "fesm5/angular8-okra.js",
+  "fesm2015": "fesm2015/angular8-okra.js",
+  "typings": "angular8-okra.d.ts",
+  "metadata": "angular8-okra.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

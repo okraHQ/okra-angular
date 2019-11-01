@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Angular8OkraComponent } from './angular8-okra.component';
 import { Angular8OkraService } from './angular8-okra.service';
 import { PUBLIC_KEY_TOKEN } from './okra-token';
+import { Angular8OkraDirective } from './angular8-okra.directive';
 
 
 
 @NgModule({
-  declarations: [Angular8OkraComponent],
+  declarations: [Angular8OkraComponent, Angular8OkraDirective],
   imports: [
     CommonModule
   ],
-  exports: [Angular8OkraComponent],
+  exports: [Angular8OkraComponent,Angular8OkraDirective],
   providers: [],
 })
 export class Angular8OkraModule {

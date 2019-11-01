@@ -1,6 +1,16 @@
 <okra-button [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
-[clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
-[products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-(onSuccess)="okraDone()">
+      [clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
+      [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
+      (onSuccess)="okraDone()">
 
 </okra-button>
+
+
+<button 
+okraButton
+[ngStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral', 'margin-top' : '230px'}"
+      [clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
+      [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
+      (onSuccess)="okraDone()">
+      chicken
+</button>
