@@ -1,6 +1,32 @@
 {
   "name": "angular8-okra",
   "version": "0.0.1",
+  "description": "Okra widget for angular 2+",
+  "author": {
+    "name": "Oto-obong Eshiett",
+    "email": "beshiett@okra.ng"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okraHQ/okra-angular.git"
+  },
+  
+  "bugs": {
+    "url": "https://github.com/okraHQ/okra-angular/issues",
+    "email": "beshiett@okra.ng"
+  },
+
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "directive",
+    "component",
+    "okra",
+    "okra-widget"
+  ],
+
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.2.13",
     "@angular/core": "^8.2.13"
