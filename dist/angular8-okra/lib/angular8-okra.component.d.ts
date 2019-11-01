@@ -18,6 +18,6 @@ export declare class Angular8OkraComponent {
     _okraOptions: Partial<PrivateOkraOptions>;
     key: string;
     constructor(okraWidgetService: Angular8OkraService);
-    pay(): Promise<void>;
+    initOkra(): Promise<void>;
     generateOptions(obj: any): void;
 }

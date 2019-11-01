@@ -16,7 +16,7 @@ export declare class Angular8OkraDirective {
     _okraOptions: Partial<PrivateOkraOptions>;
     key: string;
     constructor(okraWidgetService: Angular8OkraService);
-    pay(): Promise<void>;
+    initOkra(): Promise<void>;
     generateOptions(obj: any): void;
     buttonClick(): Promise<void>;
 }

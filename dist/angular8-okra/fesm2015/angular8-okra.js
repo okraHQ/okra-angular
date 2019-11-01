@@ -130,13 +130,13 @@ class Angular8OkraComponent {
     /**
      * @return {?}
      */
-    pay() {
+    initOkra() {
         return __awaiter(this, void 0, void 0, /** @this {!Angular8OkraComponent} */ function* () {
             this.generateOptions(this);
             yield this.okraWidgetService.loadScript();
             /** @type {?} */
-            const payment = new window.okra.create(this._okraOptions);
-            payment.open();
+            const okra = new window.okra.create(this._okraOptions);
+            okra.open();
         });
     }
     /**
@@ -166,7 +166,7 @@ class Angular8OkraComponent {
 Angular8OkraComponent.decorators = [
     { type: Component, args: [{
                 selector: 'okra-button',
-                template: `<button [ngClass]="customClass" [ngStyle]="customStyle" (click)="pay()">Init Okra</button>`
+                template: `<button [ngClass]="customClass" [ngStyle]="customStyle" (click)="initOkra()"><ng-content></ng-content></button>`
             }] }
 ];
 /** @nocollapse */
@@ -246,13 +246,13 @@ class Angular8OkraDirective {
     /**
      * @return {?}
      */
-    pay() {
+    initOkra() {
         return __awaiter(this, void 0, void 0, /** @this {!Angular8OkraDirective} */ function* () {
             this.generateOptions(this);
             yield this.okraWidgetService.loadScript();
             /** @type {?} */
-            const payment = new window.okra.create(this._okraOptions);
-            payment.open();
+            const okra = new window.okra.create(this._okraOptions);
+            okra.open();
         });
     }
     /**
@@ -283,7 +283,7 @@ class Angular8OkraDirective {
      */
     buttonClick() {
         return __awaiter(this, void 0, void 0, /** @this {!Angular8OkraDirective} */ function* () {
-            this.pay();
+            this.initOkra();
         });
     }
 }

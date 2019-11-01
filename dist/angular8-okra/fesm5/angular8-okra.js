@@ -132,12 +132,12 @@ var Angular8OkraComponent = /** @class */ (function () {
     /**
      * @return {?}
      */
-    Angular8OkraComponent.prototype.pay = /**
+    Angular8OkraComponent.prototype.initOkra = /**
      * @return {?}
      */
     function () {
         return __awaiter(this, void 0, void 0, function () {
-            var payment;
+            var okra;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -145,8 +145,8 @@ var Angular8OkraComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.okraWidgetService.loadScript()];
                     case 1:
                         _a.sent();
-                        payment = new window.okra.create(this._okraOptions);
-                        payment.open();
+                        okra = new window.okra.create(this._okraOptions);
+                        okra.open();
                         return [2 /*return*/];
                 }
             });
@@ -183,7 +183,7 @@ var Angular8OkraComponent = /** @class */ (function () {
     Angular8OkraComponent.decorators = [
         { type: Component, args: [{
                     selector: 'okra-button',
-                    template: "<button [ngClass]=\"customClass\" [ngStyle]=\"customStyle\" (click)=\"pay()\">Init Okra</button>"
+                    template: "<button [ngClass]=\"customClass\" [ngStyle]=\"customStyle\" (click)=\"initOkra()\"><ng-content></ng-content></button>"
                 }] }
     ];
     /** @nocollapse */
@@ -262,12 +262,12 @@ var Angular8OkraDirective = /** @class */ (function () {
     /**
      * @return {?}
      */
-    Angular8OkraDirective.prototype.pay = /**
+    Angular8OkraDirective.prototype.initOkra = /**
      * @return {?}
      */
     function () {
         return __awaiter(this, void 0, void 0, function () {
-            var payment;
+            var okra;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -275,8 +275,8 @@ var Angular8OkraDirective = /** @class */ (function () {
                         return [4 /*yield*/, this.okraWidgetService.loadScript()];
                     case 1:
                         _a.sent();
-                        payment = new window.okra.create(this._okraOptions);
-                        payment.open();
+                        okra = new window.okra.create(this._okraOptions);
+                        okra.open();
                         return [2 /*return*/];
                 }
             });
@@ -319,7 +319,7 @@ var Angular8OkraDirective = /** @class */ (function () {
     function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                this.pay();
+                this.initOkra();
                 return [2 /*return*/];
             });
         });

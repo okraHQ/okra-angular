@@ -9,7 +9,7 @@ declare var window: MyWindow;
 
 @Component({
   selector: 'okra-button',
-  template: `<button [ngClass]="customClass" [ngStyle]="customStyle" (click)="pay()">Init Okra</button>`,
+  template: `<button [ngClass]="customClass" [ngStyle]="customStyle" (click)="initOkra()"><ng-content></ng-content></button>`,
 })
 
 export class Angular8OkraComponent {
@@ -32,11 +32,11 @@ export class Angular8OkraComponent {
   constructor(public okraWidgetService: Angular8OkraService) {
     this.key = okraWidgetService.okraPublicKey;
    }
-  async pay() {
+  async initOkra() {
     this.generateOptions(this);
     await this.okraWidgetService.loadScript();
-    const payment = new window.okra.create(this._okraOptions);
-    payment.open();
+    const okra = new window.okra.create(this._okraOptions);
+    okra.open();
   }
 
   generateOptions(obj: any) {

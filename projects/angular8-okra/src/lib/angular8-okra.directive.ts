@@ -29,11 +29,11 @@ export class Angular8OkraDirective {
   constructor(public okraWidgetService: Angular8OkraService) {
     this.key = okraWidgetService.okraPublicKey;
    }
-  async pay() {
+  async initOkra() {
     this.generateOptions(this);
     await this.okraWidgetService.loadScript();
-    const payment = new window.okra.create(this._okraOptions);
-    payment.open();
+    const okra = new window.okra.create(this._okraOptions);
+    okra.open();
   }
 
   generateOptions(obj: any) {
@@ -53,7 +53,7 @@ export class Angular8OkraDirective {
 
   @HostListener('click')
   async buttonClick() {
-    this.pay();
+    this.initOkra();
   }
 
 }
