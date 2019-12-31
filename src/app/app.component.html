@@ -1,9 +1,12 @@
+<div id='okra-enabled'>
 <okra-button [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
       [clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
       (onSuccess)="okraDone()"> Open Okra
 
 </okra-button>
+
+</div>
 
 
 <button 

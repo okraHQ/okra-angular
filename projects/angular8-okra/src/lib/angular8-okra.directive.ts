@@ -32,8 +32,8 @@ export class Angular8OkraDirective {
   async initOkra() {
     this.generateOptions(this);
     await this.okraWidgetService.loadScript();
-    const okra = new window.okra.create(this._okraOptions);
-    okra.open();
+    const okra = new window.okra.create();
+    okra.open(this._okraOptions);
   }
 
   generateOptions(obj: any) {

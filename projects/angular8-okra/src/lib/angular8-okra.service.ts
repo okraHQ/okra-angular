@@ -30,7 +30,7 @@ export class Angular8OkraService {
       window.document.head.appendChild(link);
       link.setAttribute('rel', 'stylesheet');
       link.setAttribute('type', 'text/css');
-      link.setAttribute('href', 'https://cdn.okra.ng/okra.min.css');
+      link.setAttribute('href', 'https://cdn.okra.ng/okra.css');
 
       const script = window.document.createElement('script');
       window.document.head.appendChild(script);
@@ -51,7 +51,10 @@ export class Angular8OkraService {
       key: obj.key,
       record_id: obj.record_id,
       callback_url: obj.callback_url,
-      user: {},
+      options: {
+        user :{}
+      },
+      source: "angular",
       products: obj.products,
       onClose: obj.onClose,
       onSuccess: obj.onSuccess

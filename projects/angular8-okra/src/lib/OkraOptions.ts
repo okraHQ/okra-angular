@@ -9,12 +9,16 @@ export interface OkraOptions {
   key?: string;
 
   url_env: string;
+
+  source: String;
   
   record_id: string;
   
   callback_url: string;
-  
-  user?: {};
+
+  options?: {
+    user?: {}
+  };
   
   products: string [];
 
