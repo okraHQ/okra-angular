@@ -46,7 +46,6 @@ There are two available options
 ```html
   <button
     okraButton
-    [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
       [clientName]="'bassey'" 
       [env]="'sandbox'" 
       [callback_url]="'www.my-webhook.com'"
