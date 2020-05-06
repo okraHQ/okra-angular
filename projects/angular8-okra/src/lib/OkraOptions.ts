@@ -50,11 +50,11 @@ export interface PrivateOkraOptions extends OkraOptions {
   /**
    * A function to be called when the pay modal is closed.
    */
-  onClose: () => void;
+  onClose: (response?: any) => void;
   /**
    * A function to be called when payment is about to begin
    */
-  onSuccess: () => void;
+  onSuccess: (response?: any) => void;
 }
 
 export interface PrivateOkraOptionsWithEmitters extends OkraOptions {

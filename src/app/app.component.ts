@@ -8,12 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular8OkraExample';
 
-  okraCancel() {
+  okraCancel(json) {
     this.title = 'Okra widget closed';
-    console.log(this.title);
+    console.log(this.title, json);
   }
 
-  okraDone() {
-    console.log('Okra successful');
+  okraDone(json) {
+    console.log('Okra successful', json);
   }
 }

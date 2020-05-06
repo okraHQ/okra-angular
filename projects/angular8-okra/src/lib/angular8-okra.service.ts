@@ -44,7 +44,6 @@ export class Angular8OkraService {
   }
 
   getOkraOptions(obj: OkraOptions): OkraOptions {
-    console.log(obj);
     const okraOptions: OkraOptions = {
       env: obj.env,
       url_env: obj.url_env,

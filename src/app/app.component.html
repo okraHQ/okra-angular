@@ -13,10 +13,10 @@
       [exp]="''"
       [success_title]="'This is the success title'"
       [success_message]="'This is the success message'"
-      [guarantors]="{'status':true,'message':'wrap','number': '2'}"
+      [guarantors]="{'status':false,'message':'wrap','number': '2'}"
       [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
       [products]="['auth', 'transactions', 'balance', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()"> Open Okra
+      (onSuccess)="okraDone($event)"> Open Okra
 
 </okra-button>
 
@@ -41,6 +41,6 @@ okraButton
       [guarantors]="{'status':true,'message':'wrap','number': '2'}"
       [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()">
+      (onSuccess)="okraDone($event)">
       Open Okra 2
 </button>

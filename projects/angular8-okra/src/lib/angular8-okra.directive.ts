@@ -58,15 +58,15 @@ export class Angular8OkraDirective {
 
   generateOptions(obj: any) {
     this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
-    this._okraOptions.onClose = () => {
+    this._okraOptions.onClose = (json) => {
       if (this.onClose.observers.length) {
-        this.onClose.emit();
+        this.onClose.emit(json);
       } 
     };
 
-    this._okraOptions.onSuccess = () => {
+    this._okraOptions.onSuccess = (json) => {
       if (this.onSuccess.observers.length) {
-        this.onSuccess.emit();
+        this.onSuccess.emit(json);
       } 
     };
   }
