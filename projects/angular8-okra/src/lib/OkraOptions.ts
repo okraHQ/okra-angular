@@ -10,15 +10,28 @@ export interface OkraOptions {
 
   url_env: string;
 
-  source: String;
+  source: string;
   
   record_id: string;
   
   callback_url: string;
 
-  options?: {
-    user?: {}
-  };
+  options?: {};
+
+  token : string;
+  color : string;
+  limit : string;
+  corporate : boolean;
+  connectMessage : string;
+  guarantors : {};
+  redirect_url : string;
+  logo : string;
+  filter : {};
+  widget_success : string;
+  currency : string;
+  exp : string;
+  success_title : string;
+  success_message : string;
   
   products: string [];
 

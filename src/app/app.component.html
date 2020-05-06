@@ -1,7 +1,8 @@
 <div id='okra-enabled'>
 <okra-button [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
-      [clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
-      [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
+      [token]="'5da6358130a943486f33dced'"
+      [products]="['auth', 'transactions', 'balance', 'identity']" (onClose)="okraCancel()"
       (onSuccess)="okraDone()"> Open Okra
 
 </okra-button>
@@ -9,10 +10,11 @@
 </div>
 
 
+
 <button 
 okraButton
 [ngStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral', 'margin-top' : '230px'}"
-      [clientName]="'bassey'" [env]="'sandbox'" [callback_url]="'sandbox'"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
       (onSuccess)="okraDone()">
       chicken

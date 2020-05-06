@@ -15,7 +15,7 @@ export class Angular8OkraService {
   okraPublicKey: string;
 
   constructor(@Inject(PUBLIC_KEY_TOKEN) private token: string) {
-    this.okraPublicKey = token;   
+    this.okraPublicKey = token;
   }
 
   loadScript(): Promise<void> {
@@ -25,7 +25,7 @@ export class Angular8OkraService {
         return;
       }
 
- 
+
       const link = window.document.createElement('link');
       window.document.head.appendChild(link);
       link.setAttribute('rel', 'stylesheet');
@@ -44,6 +44,7 @@ export class Angular8OkraService {
   }
 
   getOkraOptions(obj: OkraOptions): OkraOptions {
+    console.log(obj);
     const okraOptions: OkraOptions = {
       env: obj.env,
       url_env: obj.url_env,
@@ -51,9 +52,25 @@ export class Angular8OkraService {
       key: obj.key,
       record_id: obj.record_id,
       callback_url: obj.callback_url,
-      options: {
-        user :{}
-      },
+
+      
+      options: obj.options,
+      token: obj.token,
+      color: obj.color,
+      limit: obj.limit,
+      corporate: obj.corporate,
+      connectMessage: obj.connectMessage,
+      guarantors: obj.guarantors,
+      redirect_url: obj.redirect_url,
+      logo: obj.logo,
+      filter: obj.filter,
+      widget_success: obj.widget_success,
+      currency: obj.currency,
+      exp: obj.currency,
+      success_title: obj.success_title,
+      success_message: obj.success_message,
+
+
       source: "angular",
       products: obj.products,
       onClose: obj.onClose,

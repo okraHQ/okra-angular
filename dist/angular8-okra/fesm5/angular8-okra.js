@@ -47,7 +47,7 @@ var Angular8OkraService = /** @class */ (function () {
             window.document.head.appendChild(link);
             link.setAttribute('rel', 'stylesheet');
             link.setAttribute('type', 'text/css');
-            link.setAttribute('href', 'https://cdn.okra.ng/okra.min.css');
+            link.setAttribute('href', 'https://cdn.okra.ng/okra.css');
             /** @type {?} */
             var script = window.document.createElement('script');
             window.document.head.appendChild(script);
@@ -72,6 +72,7 @@ var Angular8OkraService = /** @class */ (function () {
      * @return {?}
      */
     function (obj) {
+        console.log(obj);
         /** @type {?} */
         var okraOptions = {
             env: obj.env,
@@ -80,7 +81,22 @@ var Angular8OkraService = /** @class */ (function () {
             key: obj.key,
             record_id: obj.record_id,
             callback_url: obj.callback_url,
-            user: {},
+            options: obj.options,
+            token: obj.token,
+            color: obj.color,
+            limit: obj.limit,
+            corporate: obj.corporate,
+            connectMessage: obj.connectMessage,
+            guarantors: obj.guarantors,
+            redirect_url: obj.redirect_url,
+            logo: obj.logo,
+            filter: obj.filter,
+            widget_success: obj.widget_success,
+            currency: obj.currency,
+            exp: obj.currency,
+            success_title: obj.success_title,
+            success_message: obj.success_message,
+            source: "angular",
             products: obj.products,
             onClose: obj.onClose,
             onSuccess: obj.onSuccess
@@ -145,8 +161,8 @@ var Angular8OkraComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.okraWidgetService.loadScript()];
                     case 1:
                         _a.sent();
-                        okra = new window.okra.create(this._okraOptions);
-                        okra.open();
+                        okra = new window.okra.create();
+                        okra.open(this._okraOptions);
                         return [2 /*return*/];
                 }
             });
@@ -200,6 +216,22 @@ var Angular8OkraComponent = /** @class */ (function () {
         callback_url: [{ type: Input }],
         user: [{ type: Input }],
         products: [{ type: Input }],
+        token: [{ type: Input }],
+        options: [{ type: Input }],
+        source: [{ type: Input }],
+        color: [{ type: Input }],
+        limit: [{ type: Input }],
+        corporate: [{ type: Input }],
+        connectMessage: [{ type: Input }],
+        guarantors: [{ type: Input }],
+        redirect_url: [{ type: Input }],
+        logo: [{ type: Input }],
+        filter: [{ type: Input }],
+        widget_success: [{ type: Input }],
+        currency: [{ type: Input }],
+        exp: [{ type: Input }],
+        success_title: [{ type: Input }],
+        success_message: [{ type: Input }],
         okraOptions: [{ type: Input }],
         onClose: [{ type: Output }],
         onSuccess: [{ type: Output }]
@@ -225,6 +257,38 @@ if (false) {
     Angular8OkraComponent.prototype.user;
     /** @type {?} */
     Angular8OkraComponent.prototype.products;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.token;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.options;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.source;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.color;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.limit;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.corporate;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.connectMessage;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.guarantors;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.redirect_url;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.logo;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.filter;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.widget_success;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.currency;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.exp;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.success_title;
+    /** @type {?} */
+    Angular8OkraComponent.prototype.success_message;
     /** @type {?} */
     Angular8OkraComponent.prototype.okraOptions;
     /** @type {?} */
@@ -275,8 +339,8 @@ var Angular8OkraDirective = /** @class */ (function () {
                         return [4 /*yield*/, this.okraWidgetService.loadScript()];
                     case 1:
                         _a.sent();
-                        okra = new window.okra.create(this._okraOptions);
-                        okra.open();
+                        okra = new window.okra.create();
+                        okra.open(this._okraOptions);
                         return [2 /*return*/];
                 }
             });
@@ -341,6 +405,22 @@ var Angular8OkraDirective = /** @class */ (function () {
         callback_url: [{ type: Input }],
         user: [{ type: Input }],
         products: [{ type: Input }],
+        token: [{ type: Input }],
+        options: [{ type: Input }],
+        source: [{ type: Input }],
+        color: [{ type: Input }],
+        limit: [{ type: Input }],
+        corporate: [{ type: Input }],
+        connectMessage: [{ type: Input }],
+        guarantors: [{ type: Input }],
+        redirect_url: [{ type: Input }],
+        logo: [{ type: Input }],
+        filter: [{ type: Input }],
+        widget_success: [{ type: Input }],
+        currency: [{ type: Input }],
+        exp: [{ type: Input }],
+        success_title: [{ type: Input }],
+        success_message: [{ type: Input }],
         okraOptions: [{ type: Input }],
         onClose: [{ type: Output }],
         onSuccess: [{ type: Output }],
@@ -363,6 +443,38 @@ if (false) {
     Angular8OkraDirective.prototype.user;
     /** @type {?} */
     Angular8OkraDirective.prototype.products;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.token;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.options;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.source;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.color;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.limit;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.corporate;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.connectMessage;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.guarantors;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.redirect_url;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.logo;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.filter;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.widget_success;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.currency;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.exp;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.success_title;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.success_message;
     /** @type {?} */
     Angular8OkraDirective.prototype.okraOptions;
     /** @type {?} */

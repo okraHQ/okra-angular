@@ -20,6 +20,26 @@ export class Angular8OkraDirective {
   @Input() callback_url: string;
   @Input() user: {};
   @Input() products: string[];
+
+
+  @Input() token : string;
+  @Input() options : {};
+  @Input() source : string;
+  @Input() color : string;
+  @Input() limit : string;
+  @Input() corporate : null;
+  @Input() connectMessage : string;
+  @Input() guarantors : {};
+  @Input() redirect_url : string;
+  @Input() logo : string;
+  @Input() filter : {};
+  @Input() widget_success : string;
+  @Input() currency : string;
+  @Input() exp : string;
+  @Input() success_title : string;
+  @Input() success_message : string;
+
+
   @Input() okraOptions: OkraOptions;
   @Output() onClose: EventEmitter<any> = new EventEmitter<any>(); // tslint:disable-line
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
