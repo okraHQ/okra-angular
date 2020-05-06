@@ -31,28 +31,52 @@ There are two available options
 
 * **AngularOkraComponent**: Renders a button which when clicked loads okra Inline
   ```html
-    <okra-button
-      [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
-      [clientName]="'bassey'" 
-      [env]="'sandbox'" 
-      [callback_url]="'www.my-webhook.com'"
-      [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()">
-      Open Okra
-    </okra-button>
+    <okra-button [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
+      [token]="'8da634343486f33dced'"
+      [color]="'#b0c77f'"
+      [limit]="'24'"
+      [corporate]="false"
+      [connectMessage]="'This is my connect message'"
+      [redirect_url]="'www.anonymous.com'"
+      [logo]="''"
+      [widget_success]="'This is the widget success'"
+      [currency]="'NGN'"
+      [exp]="''"
+      [success_title]="'This is the success title'"
+      [success_message]="'This is the success message'"
+      [guarantors]="{'status':false,'message':'wrap','number': '2'}"
+      [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
+      [products]="['auth', 'transactions', 'balance', 'identity']" (onClose)="okraCancel()"
+      (onSuccess)="okraDone(response)"> Open Okra
+
+</okra-button>
   ```
 
 *  **AngularOkraDirective**: A directive that loads okra inline when clicked
 ```html
-  <button
-    okraButton
-      [clientName]="'bassey'" 
-      [env]="'sandbox'" 
-      [callback_url]="'www.my-webhook.com'"
+  <button 
+okraButton
+[ngStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral', 'margin-top' : '230px'}"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
+      [token]="'5dae5630a943453433dced'"
+      [color]="'#b0c77f'"
+      [limit]="'24'"
+      [corporate]="false"
+      [connectMessage]="'This is my connect message'"
+      [redirect_url]="'www.anonymous.com'"
+      [logo]="''"
+      [widget_success]="'This is the widget success'"
+      [currency]="'NGN'"
+      [exp]="''"
+      [success_title]="'This is the success title'"
+      [success_message]="'This is the success message'"
+      [guarantors]="{'status':true,'message':'wrap','number': '2'}"
+      [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()">
-    Open okra
-  </button>
+      (onSuccess)="okraDone($event)">
+      Open Okra 2
+</button>
 ```
 
 And then in your `component.ts`
@@ -89,12 +113,29 @@ And then in your `component.ts`
 
 |Name                   | Type           | Required            | Default Value       | Description         |
 |-----------------------|----------------|---------------------|---------------------|---------------------|
-|  `callback_url `      | `string`       | true                |  undefined          | This is your webhook to which okra sends the clients data to.
-|  `key `               | `String`       | false               |  undefined          | Your public key from Okra.
-|  `products`           | `ArrayList<Enums.Product>`| true     |  undefined          | The Okra products you want to use with the widget. list of products include: 'auth', 'transactions', 'balance', 'income', 'identity'
-|  `env`                | `Enums.Environment`| true            |  undefined          | 
-|  `clientName`         | `String`       | true                |  undefined          | Name of the customer using the widget on the application
-|  `user`               | `object`       | false               |  undefined          | This contains some information of the user using the okra widget {fullname: 'USER_FULL_NAME',email: 'USER_EMAIL', bvn: 'USER_BVN'}
+|  `key `               | `String`       | true                |                     | Your public key from your Okra Dashboard.
+|  `token `             | `String`       | true                |                     | Your token from your Okra Dashboard.
+|  `env `               | `String`       | false               |`production`         | production(live)/production-sandbox (test)
+|  `products`           | `Array`        | true                | `['Auth']`          | The Okra products you want to use with the widget.
+|  `logo `              | `String(URL)`  | false               | Okra's Logo         | 
+|  `clientName `        | `String`       | false               | Your Company's name | Name on the widget 
+|  `color`              | `HEX   `       | false               | #3AB795             | Theme on the widget 
+|  `limit`              | `Number`       | false               | 24                  | Statement length
+|  `filter`             | `Object`       | false               |                     | Filter for widget
+|  `isCorporate`        | `Boolen`       | false               | `false`             | Corporate or Individual account
+|  `connectMessage`     | `String`       | false               |                     | Instruction to connnect account
+|  `guarantors          | `Object`       | false               |                     | 
+|  `widget_success`     | `String`       | false               |                     | Widget Success Message
+|  `widget_failed`      | `String`       | false               |                     | Widget Failed Message
+|  `callback_url`       | `String(Url)`  | false               |                     | 
+|  `currency`           | `String`       | false               | NGN                 | Wallet to bill
+|  `exp`                | `Date`         | false               | Won't expire        | Expirary date of widget
+|  `options`            | `Object`       | false               |                     | You can pass a object custom values eg id
+|  `onSuccess`          | `Function`     | false               |                     | Action to perform after widget is successful
+|  `onClose`            | `Function`     | false               |                     | Action to perform if widget is closed
+
+
+
 
 
 
