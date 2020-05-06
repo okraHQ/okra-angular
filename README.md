@@ -31,28 +31,52 @@ There are two available options
 
 * **AngularOkraComponent**: Renders a button which when clicked loads okra Inline
   ```html
-    <okra-button
-      [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
-      [clientName]="'bassey'" 
-      [env]="'sandbox'" 
-      [callback_url]="'www.my-webhook.com'"
-      [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()">
-      Open Okra
-    </okra-button>
+    <okra-button [customStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral'}"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
+      [token]="'8da634343486f33dced'"
+      [color]="'#b0c77f'"
+      [limit]="'24'"
+      [corporate]="false"
+      [connectMessage]="'This is my connect message'"
+      [redirect_url]="'www.anonymous.com'"
+      [logo]="''"
+      [widget_success]="'This is the widget success'"
+      [currency]="'NGN'"
+      [exp]="''"
+      [success_title]="'This is the success title'"
+      [success_message]="'This is the success message'"
+      [guarantors]="{'status':false,'message':'wrap','number': '2'}"
+      [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
+      [products]="['auth', 'transactions', 'balance', 'identity']" (onClose)="okraCancel()"
+      (onSuccess)="okraDone(response)"> Open Okra
+
+</okra-button>
   ```
 
 *  **AngularOkraDirective**: A directive that loads okra inline when clicked
 ```html
-  <button
-    okraButton
-      [clientName]="'bassey'" 
-      [env]="'sandbox'" 
-      [callback_url]="'www.my-webhook.com'"
+  <button 
+okraButton
+[ngStyle]="{'font-size.px':14, 'color' : 'green', 'background-color' : 'coral', 'margin-top' : '230px'}"
+      [clientName]="'bassey'" [env]="'production'" [callback_url]="'sandbox'"
+      [token]="'5dae5630a943453433dced'"
+      [color]="'#b0c77f'"
+      [limit]="'24'"
+      [corporate]="false"
+      [connectMessage]="'This is my connect message'"
+      [redirect_url]="'www.anonymous.com'"
+      [logo]="''"
+      [widget_success]="'This is the widget success'"
+      [currency]="'NGN'"
+      [exp]="''"
+      [success_title]="'This is the success title'"
+      [success_message]="'This is the success message'"
+      [guarantors]="{'status':true,'message':'wrap','number': '2'}"
+      [filter]="{'industry_type':'all','banks':['ecobank-nigeria','fidelity-bank','first-bank-of-nigeria']}"
       [products]="['auth', 'transactions', 'balance', 'income', 'identity']" (onClose)="okraCancel()"
-      (onSuccess)="okraDone()">
-    Open okra
-  </button>
+      (onSuccess)="okraDone($event)">
+      Open Okra 2
+</button>
 ```
 
 And then in your `component.ts`
