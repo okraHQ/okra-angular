@@ -73,7 +73,9 @@ export class Angular8OkraService {
       source: "angular",
       products: obj.products,
       onClose: obj.onClose,
-      onSuccess: obj.onSuccess
+      onSuccess: obj.onSuccess,
+      onError: obj.onError
+      
     };
     return okraOptions;
   }

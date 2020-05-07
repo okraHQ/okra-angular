@@ -46,6 +46,7 @@ export class Angular8OkraComponent {
   @Input() okraOptions: OkraOptions;
   @Output() onClose: EventEmitter<any> = new EventEmitter<any>(); // tslint:disable-line
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onError: EventEmitter<any> = new EventEmitter<any>();
   public _okraOptions: Partial<PrivateOkraOptions>; // tslint:disable-line
   key: string;
 
@@ -71,6 +72,12 @@ export class Angular8OkraComponent {
       if (this.onSuccess.observers.length) {
           this.onSuccess.emit(json);
       } 
+    };
+    
+    this._okraOptions.onError = (json) => {
+      if (this.onError.observers.length) {
+        this.onError.emit(json);
+      }
     };
   }
 }

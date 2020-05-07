@@ -22,33 +22,34 @@ export class Angular8OkraDirective {
   @Input() products: string[];
 
 
-  @Input() token : string;
-  @Input() options : {};
-  @Input() source : string;
-  @Input() color : string;
-  @Input() limit : string;
-  @Input() corporate : null;
-  @Input() connectMessage : string;
-  @Input() guarantors : {};
-  @Input() redirect_url : string;
-  @Input() logo : string;
-  @Input() filter : {};
-  @Input() widget_success : string;
-  @Input() currency : string;
-  @Input() exp : string;
-  @Input() success_title : string;
-  @Input() success_message : string;
+  @Input() token: string;
+  @Input() options: {};
+  @Input() source: string;
+  @Input() color: string;
+  @Input() limit: string;
+  @Input() corporate: null;
+  @Input() connectMessage: string;
+  @Input() guarantors: {};
+  @Input() redirect_url: string;
+  @Input() logo: string;
+  @Input() filter: {};
+  @Input() widget_success: string;
+  @Input() currency: string;
+  @Input() exp: string;
+  @Input() success_title: string;
+  @Input() success_message: string;
 
 
   @Input() okraOptions: OkraOptions;
-  @Output() onClose: EventEmitter<any> = new EventEmitter<any>(); // tslint:disable-line
+  @Output() onClose: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
-  public _okraOptions: Partial<PrivateOkraOptions>; // tslint:disable-line
+  @Output() onError: EventEmitter<any> = new EventEmitter<any>();
+  public _okraOptions: Partial<PrivateOkraOptions>;
   key: string;
 
   constructor(public okraWidgetService: Angular8OkraService) {
     this.key = okraWidgetService.okraPublicKey;
-   }
+  }
   async initOkra() {
     this.generateOptions(this);
     await this.okraWidgetService.loadScript();
@@ -58,16 +59,23 @@ export class Angular8OkraDirective {
 
   generateOptions(obj: any) {
     this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
+
     this._okraOptions.onClose = (json) => {
       if (this.onClose.observers.length) {
         this.onClose.emit(json);
-      } 
+      }
     };
 
     this._okraOptions.onSuccess = (json) => {
       if (this.onSuccess.observers.length) {
         this.onSuccess.emit(json);
-      } 
+      }
+    };
+
+    this._okraOptions.onError = (json) => {
+      if (this.onError.observers.length) {
+        this.onError.emit(json);
+      }
     };
   }
 
