@@ -271,7 +271,6 @@
          * @return {?}
          */
         function (obj) {
-            console.log(obj);
             /** @type {?} */
             var okraOptions = {
                 env: obj.env,
@@ -298,7 +297,8 @@
                 source: "angular",
                 products: obj.products,
                 onClose: obj.onClose,
-                onSuccess: obj.onSuccess
+                onSuccess: obj.onSuccess,
+                onError: obj.onError
             };
             return okraOptions;
         };
@@ -342,6 +342,7 @@
             this.onClose = new core.EventEmitter(); // tslint:disable-line
             // tslint:disable-line
             this.onSuccess = new core.EventEmitter();
+            this.onError = new core.EventEmitter();
             this.key = okraWidgetService.okraPublicKey;
         }
         /**
@@ -379,19 +380,30 @@
             var _this = this;
             this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
             this._okraOptions.onClose = (/**
+             * @param {?} json
              * @return {?}
              */
-            function () {
+            function (json) {
                 if (_this.onClose.observers.length) {
                     _this.onClose.emit();
                 }
             });
             this._okraOptions.onSuccess = (/**
+             * @param {?} json
              * @return {?}
              */
-            function () {
+            function (json) {
                 if (_this.onSuccess.observers.length) {
-                    _this.onSuccess.emit();
+                    _this.onSuccess.emit(json);
+                }
+            });
+            this._okraOptions.onError = (/**
+             * @param {?} json
+             * @return {?}
+             */
+            function (json) {
+                if (_this.onError.observers.length) {
+                    _this.onError.emit(json);
                 }
             });
         };
@@ -433,7 +445,8 @@
             success_message: [{ type: core.Input }],
             okraOptions: [{ type: core.Input }],
             onClose: [{ type: core.Output }],
-            onSuccess: [{ type: core.Output }]
+            onSuccess: [{ type: core.Output }],
+            onError: [{ type: core.Output }]
         };
         return Angular8OkraComponent;
     }());
@@ -495,6 +508,8 @@
         /** @type {?} */
         Angular8OkraComponent.prototype.onSuccess;
         /** @type {?} */
+        Angular8OkraComponent.prototype.onError;
+        /** @type {?} */
         Angular8OkraComponent.prototype._okraOptions;
         /** @type {?} */
         Angular8OkraComponent.prototype.key;
@@ -517,9 +532,9 @@
     var Angular8OkraDirective = /** @class */ (function () {
         function Angular8OkraDirective(okraWidgetService) {
             this.okraWidgetService = okraWidgetService;
-            this.onClose = new core.EventEmitter(); // tslint:disable-line
-            // tslint:disable-line
+            this.onClose = new core.EventEmitter();
             this.onSuccess = new core.EventEmitter();
+            this.onError = new core.EventEmitter();
             this.key = okraWidgetService.okraPublicKey;
         }
         /**
@@ -557,19 +572,30 @@
             var _this = this;
             this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
             this._okraOptions.onClose = (/**
+             * @param {?} json
              * @return {?}
              */
-            function () {
+            function (json) {
                 if (_this.onClose.observers.length) {
-                    _this.onClose.emit();
+                    _this.onClose.emit(json);
                 }
             });
             this._okraOptions.onSuccess = (/**
+             * @param {?} json
              * @return {?}
              */
-            function () {
+            function (json) {
                 if (_this.onSuccess.observers.length) {
-                    _this.onSuccess.emit();
+                    _this.onSuccess.emit(json);
+                }
+            });
+            this._okraOptions.onError = (/**
+             * @param {?} json
+             * @return {?}
+             */
+            function (json) {
+                if (_this.onError.observers.length) {
+                    _this.onError.emit(json);
                 }
             });
         };
@@ -623,6 +649,7 @@
             okraOptions: [{ type: core.Input }],
             onClose: [{ type: core.Output }],
             onSuccess: [{ type: core.Output }],
+            onError: [{ type: core.Output }],
             buttonClick: [{ type: core.HostListener, args: ['click',] }]
         };
         return Angular8OkraDirective;
@@ -680,6 +707,8 @@
         Angular8OkraDirective.prototype.onClose;
         /** @type {?} */
         Angular8OkraDirective.prototype.onSuccess;
+        /** @type {?} */
+        Angular8OkraDirective.prototype.onError;
         /** @type {?} */
         Angular8OkraDirective.prototype._okraOptions;
         /** @type {?} */

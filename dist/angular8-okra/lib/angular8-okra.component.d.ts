@@ -31,6 +31,7 @@ export declare class Angular8OkraComponent {
     okraOptions: OkraOptions;
     onClose: EventEmitter<any>;
     onSuccess: EventEmitter<any>;
+    onError: EventEmitter<any>;
     _okraOptions: Partial<PrivateOkraOptions>;
     key: string;
     constructor(okraWidgetService: Angular8OkraService);

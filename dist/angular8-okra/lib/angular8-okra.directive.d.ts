@@ -29,6 +29,7 @@ export declare class Angular8OkraDirective {
     okraOptions: OkraOptions;
     onClose: EventEmitter<any>;
     onSuccess: EventEmitter<any>;
+    onError: EventEmitter<any>;
     _okraOptions: Partial<PrivateOkraOptions>;
     key: string;
     constructor(okraWidgetService: Angular8OkraService);

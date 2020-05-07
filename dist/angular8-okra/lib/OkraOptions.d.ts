@@ -25,22 +25,25 @@ export interface OkraOptions {
     products: string[];
     onClose: any;
     onSuccess: any;
+    onError: any;
 }
 export interface PrivateOkraOptions extends OkraOptions {
     /**
-     * A function to be called on successful card charge. User’s can always be redirected to a successful or
-     * failed page supplied by the merchant here based on response
      * @param response?: The server response
      */
     callback: (response?: any) => void;
     /**
-     * A function to be called when the pay modal is closed.
+     * A function to be called when the okra widget is closed.
      */
-    onClose: () => void;
+    onClose: (response?: any) => void;
     /**
-     * A function to be called when payment is about to begin
+     * A function to be called when okra runs successfully
      */
-    onSuccess: () => void;
+    onSuccess: (response?: any) => void;
+    /**
+     * A function to be called when okra fails
+     */
+    onError: (response?: any) => void;
 }
 export interface PrivateOkraOptionsWithEmitters extends OkraOptions {
     /**

@@ -68,7 +68,6 @@ class Angular8OkraService {
      * @return {?}
      */
     getOkraOptions(obj) {
-        console.log(obj);
         /** @type {?} */
         const okraOptions = {
             env: obj.env,
@@ -95,7 +94,8 @@ class Angular8OkraService {
             source: "angular",
             products: obj.products,
             onClose: obj.onClose,
-            onSuccess: obj.onSuccess
+            onSuccess: obj.onSuccess,
+            onError: obj.onError
         };
         return okraOptions;
     }
@@ -141,6 +141,7 @@ class Angular8OkraComponent {
         this.onClose = new EventEmitter(); // tslint:disable-line
         // tslint:disable-line
         this.onSuccess = new EventEmitter();
+        this.onError = new EventEmitter();
         this.key = okraWidgetService.okraPublicKey;
     }
     /**
@@ -162,19 +163,30 @@ class Angular8OkraComponent {
     generateOptions(obj) {
         this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
         this._okraOptions.onClose = (/**
+         * @param {?} json
          * @return {?}
          */
-        () => {
+        (json) => {
             if (this.onClose.observers.length) {
                 this.onClose.emit();
             }
         });
         this._okraOptions.onSuccess = (/**
+         * @param {?} json
          * @return {?}
          */
-        () => {
+        (json) => {
             if (this.onSuccess.observers.length) {
-                this.onSuccess.emit();
+                this.onSuccess.emit(json);
+            }
+        });
+        this._okraOptions.onError = (/**
+         * @param {?} json
+         * @return {?}
+         */
+        (json) => {
+            if (this.onError.observers.length) {
+                this.onError.emit(json);
             }
         });
     }
@@ -217,7 +229,8 @@ Angular8OkraComponent.propDecorators = {
     success_message: [{ type: Input }],
     okraOptions: [{ type: Input }],
     onClose: [{ type: Output }],
-    onSuccess: [{ type: Output }]
+    onSuccess: [{ type: Output }],
+    onError: [{ type: Output }]
 };
 if (false) {
     /** @type {?} */
@@ -277,6 +290,8 @@ if (false) {
     /** @type {?} */
     Angular8OkraComponent.prototype.onSuccess;
     /** @type {?} */
+    Angular8OkraComponent.prototype.onError;
+    /** @type {?} */
     Angular8OkraComponent.prototype._okraOptions;
     /** @type {?} */
     Angular8OkraComponent.prototype.key;
@@ -302,9 +317,9 @@ class Angular8OkraDirective {
      */
     constructor(okraWidgetService) {
         this.okraWidgetService = okraWidgetService;
-        this.onClose = new EventEmitter(); // tslint:disable-line
-        // tslint:disable-line
+        this.onClose = new EventEmitter();
         this.onSuccess = new EventEmitter();
+        this.onError = new EventEmitter();
         this.key = okraWidgetService.okraPublicKey;
     }
     /**
@@ -326,19 +341,30 @@ class Angular8OkraDirective {
     generateOptions(obj) {
         this._okraOptions = this.okraWidgetService.getOkraOptions(obj);
         this._okraOptions.onClose = (/**
+         * @param {?} json
          * @return {?}
          */
-        () => {
+        (json) => {
             if (this.onClose.observers.length) {
-                this.onClose.emit();
+                this.onClose.emit(json);
             }
         });
         this._okraOptions.onSuccess = (/**
+         * @param {?} json
          * @return {?}
          */
-        () => {
+        (json) => {
             if (this.onSuccess.observers.length) {
-                this.onSuccess.emit();
+                this.onSuccess.emit(json);
+            }
+        });
+        this._okraOptions.onError = (/**
+         * @param {?} json
+         * @return {?}
+         */
+        (json) => {
+            if (this.onError.observers.length) {
+                this.onError.emit(json);
             }
         });
     }
@@ -387,6 +413,7 @@ Angular8OkraDirective.propDecorators = {
     okraOptions: [{ type: Input }],
     onClose: [{ type: Output }],
     onSuccess: [{ type: Output }],
+    onError: [{ type: Output }],
     buttonClick: [{ type: HostListener, args: ['click',] }]
 };
 if (false) {
@@ -442,6 +469,8 @@ if (false) {
     Angular8OkraDirective.prototype.onClose;
     /** @type {?} */
     Angular8OkraDirective.prototype.onSuccess;
+    /** @type {?} */
+    Angular8OkraDirective.prototype.onError;
     /** @type {?} */
     Angular8OkraDirective.prototype._okraOptions;
     /** @type {?} */
