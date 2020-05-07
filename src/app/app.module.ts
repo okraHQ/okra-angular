@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    Angular8OkraModule.forRoot('c81f3e05-7a5c-5727-8d33-1113a3c7a5e4'),
+    Angular8OkraModule.forRoot('101ee499-beed-53ef-b9e4-1846790792a5'),
   ],
   providers: [],
   bootstrap: [AppComponent]
